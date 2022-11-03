@@ -27,92 +27,57 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
 
-    <script>
-        $(function () {
-            $("#accordion").accordion({
-                collapsible: true,
-                heightStyle: "content"
-            });
-        });
-    </script>
-
-    <script>
-        const showDialog = () => {
-            document.getElementById("dialog").classList.add("is-active-2");
-            const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
-            const body = document.body;
-            body.style.position = "fixed";
-            body.style.top = `-${scrollY}`;
-        };
-        const closeDialog = () => {
-            const body = document.body;
-            const scrollY = body.style.top;
-            body.style.position = "";
-            body.style.top = "";
-            window.scrollTo(0, parseInt(scrollY || "0") * -1);
-            document.getElementById("dialog").classList.remove("is-active-2");
-        };
-        window.addEventListener("scroll", () => {
-            document.documentElement.style.setProperty(
-            "--scroll-y",
-            `${window.scrollY}px`
-            );
-        });
-    </script>
-
-
     <link rel="stylesheet" href="/css/style.css">
-
 </head>
 
 <body>
     <header class="header">
         <div class="container header__container">
             <nav class="header__nav">
-                <button class="header__burger" id='show' onClick='showDialog()'></button>
-                <a href="" class="header__logo-link"></a>
-                <button class="header__btn-search"></button>
+                <button class="header__burger" aria-label="Бургер меню" id='show' onClick='showDialog()'></button>
+                <a href="" aria-label="Логотип" class="header__logo-link"></a>
+                <button aria-label="Найти" class="header__btn-search"></button>
                 <div class="header__block-search block-search">
-                    <button class="block-search__btn"></button>
-                    <input class="block-search__input" type="text">
-                    <button class="block-search__exit"></button>
+                    <button  aria-label="Поиск" class="block-search__btn"></button>
+                    <input  aria-label="Меню ввода" class="block-search__input" type="text">
+                    <button  aria-label="Выйти из поиска" class="block-search__exit"></button>
                 </div>
-                <ul class="header__list" id='dialog'>
+                <ul class="header__list is-active-2" id='dialog'>
                     <li class="header__item-exit"  id='close' onClick='closeDialog()'>
-                        <button class="header__item-exit-btn" ></button>
+                        <button aria-label="Выход из меню" class="header__item-exit-btn" ></button>
                     </li>
                     <li class="header__item">
-                        <a href="#section-about" class="header__link-1">
+                        <a href="#section-about" class="header__link-1" aria-label="О нас">
                             О нас
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="#section-gallery" class="header__link-1">
+                        <a href="#section-gallery" class="header__link-1" aria-label="Галерея">
                             Галерея
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="#section-catalog" class="header__link-1">
+                        <a href="#section-catalog" class="header__link-1" aria-label="Каталог">
                             Каталог
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="#section-event" class="header__link-1">
+                        <a href="#section-event" class="header__link-1" aria-label="События">
                             События
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="#section-projects" class="header__link-1">
+                        <a href="#section-projects" class="header__link-1" aria-label="Проекты">
                             Проекты
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="#section-form" class="header__link-1">
+                        <a href="#section-form" class="header__link-1" aria-label="Контакты">
                             Контакты
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="" class="header__link">
+                        <a href="" class="header__link" aria-label="Войти">
                             Войти
                         </a>
                     </li>
@@ -121,148 +86,148 @@
             <div class="header__footer">
                 <ul class="header__list-2">
                     <li class="header-item-2">
-                        <button data-path="one" class="header__btn ">
+                        <a data-path="one" class="header__btn ">
                             Реализм
-                        </button>
+                        </a>
                     </li>
                     <li class="header-item-2">
-                        <button data-path="two" class="header__btn">
+                        <a data-path="two" class="header__btn">
                             Импрессионизм
-                        </button>
+                        </a>
                     </li>
                     <li class="header-item-2">
-                        <button data-path="three" class="header__btn">
+                        <a data-path="three" class="header__btn">
                             Постимпрессионизм
-                        </button>
+                        </a>
                     </li>
                     <li class="header-item-2">
-                        <button data-path="four" class="header__btn">
+                        <a data-path="four" class="header__btn">
                             Авангард
-                        </button>
+                        </a>
                     </li>
                     <li class="header-item-2">
-                        <button data-path="five" class="header__btn">
+                        <a data-path="five" class="header__btn">
                             Футуризм
-                        </button>
+                        </a>
                     </li>
                 </ul>
-                <div class="tab-content header_tab-content" id="header" data-target="one" data-simplebar>
+                <div class="tab-content header__tab-content" id="header" data-target="one" data-simplebar>
                     <ul class="tab-content__list">
                         <li class="tab-content__item">
-                            <button data-btn-value="1" class="tab-content__btn">
+                            <a data-btn-value="1" class="tab-content__btn">
                                 Тинторетто
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="2" class="tab-content__btn">
+                            <a data-btn-value="2" class="tab-content__btn">
                                 Фридрих
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="3" class="tab-content__btn">
+                            <a data-btn-value="3" class="tab-content__btn">
                                 Леонардо
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="4" class="tab-content__btn">
+                            <a data-btn-value="4" class="tab-content__btn">
                                 Верроккьо
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <div class="tab-content header_tab-content" id="header-2" data-target="two" data-simplebar>
+                <div class="tab-content header__tab-content" id="header-2" data-target="two" data-simplebar>
                     <ul class="tab-content__list">
                         <li class="tab-content__item">
-                            <button data-btn-value="5" class="tab-content__btn">
+                            <a data-btn-value="5" class="tab-content__btn">
                                 Моне
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="6" class="tab-content__btn">
+                            <a data-btn-value="6" class="tab-content__btn">
                                 Сислей
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="7" class="tab-content__btn">
+                            <a data-btn-value="7" class="tab-content__btn">
                                 Мане
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="8" class="tab-content__btn">
+                            <a data-btn-value="8" class="tab-content__btn">
                                 Ренуар
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <div class="tab-content header_tab-content" id="header-3" data-target="three" data-simplebar>
+                <div class="tab-content header__tab-content" id="header-3" data-target="three" data-simplebar>
                     <ul class="tab-content__list">
                         <li class="tab-content__item">
-                            <button data-btn-value="9" class="tab-content__btn">
+                            <a data-btn-value="9" class="tab-content__btn">
                                 Ван Гог
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="10" class="tab-content__btn">
+                            <a data-btn-value="10" class="tab-content__btn">
                                 Сезанн
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="11" class="tab-content__btn">
+                            <a data-btn-value="11" class="tab-content__btn">
                                 Гоген
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="12" class="tab-content__btn">
+                            <a data-btn-value="12" class="tab-content__btn">
                                 Сёра
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <div class="tab-content header_tab-content" id="header-4" data-target="four" data-simplebar>
+                <div class="tab-content header__tab-content" id="header-4" data-target="four" data-simplebar>
                     <ul class="tab-content__list">
                         <li class="tab-content__item">
-                            <button data-btn-value="13" class="tab-content__btn">
+                            <a data-btn-value="13" class="tab-content__btn">
                                 Кандинский
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="14" class="tab-content__btn">
+                            <a data-btn-value="14" class="tab-content__btn">
                                 Маринетти
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="15" class="tab-content__btn">
+                            <a data-btn-value="15" class="tab-content__btn">
                                 Малевич
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="16" class="tab-content__btn">
+                            <a data-btn-value="16" class="tab-content__btn">
                                 Пикассо
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <div class="tab-content header_tab-content" id="header-5" data-target="five" data-simplebar>
+                <div class="tab-content header__tab-content" id="header-5" data-target="five" data-simplebar>
                     <ul class="tab-content__list">
                         <li class="tab-content__item">
-                            <button data-btn-value="17" class="tab-content__btn">
+                            <a data-btn-value="17" class="tab-content__btn">
                                 Карра
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="18" class="tab-content__btn">
+                            <a data-btn-value="18" class="tab-content__btn">
                                 Прателла
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="19" class="tab-content__btn">
+                            <a data-btn-value="19" class="tab-content__btn">
                                 Северини
-                            </button>
+                            </a>
                         </li>
                         <li class="tab-content__item">
-                            <button data-btn-value="20" class="tab-content__btn">
+                            <a data-btn-value="20" class="tab-content__btn">
                                 Балла
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -274,8 +239,8 @@
 
     <main>
         <section class="section-hero">
-            <div class="secton-hero__container container">
-                <h1 class="secton-hero__heading">
+            <div class="container section-hero__container">
+                <h1 class="section-hero__heading">
                     Прикоснитесь к прекрасному
                 </h1>
                 <p class="section-hero__text">
@@ -550,7 +515,7 @@
                         </div>
                         <h3 class="accordion__header">C 1500 по 1599 гг</h3>
                         <div class="accordion__block">
-                            <div class="accrodion__clear">
+                            <div class="accordion__clear">
                                 <h4 class="accordion__subtitle">Здесь пока пусто</h4>
                                 <p class="accordion__text">А в галерее вы всегда можете найти что-то интересное для себя
                                 </p>
@@ -559,7 +524,7 @@
                         </div>
                         <h3 class="accordion__header">C 1600 по 1699 гг</h3>
                         <div class="accordion__block">
-                            <div class="accrodion__clear">
+                            <div class="accordion__clear">
                                 <h4 class="accordion__subtitle">Здесь пока пусто</h4>
                                 <p class="accordion__text">А в галерее вы всегда можете найти что-то интересное для себя
                                 </p>
@@ -568,7 +533,7 @@
                         </div>
                         <h3 class="accordion__header">C 1700 по 1799 гг</h3>
                         <div class="accordion__block">
-                            <div class="accrodion__clear">
+                            <div class="accordion__clear">
                                 <h4 class="accordion__subtitle">Здесь пока пусто</h4>
                                 <p class="accordion__text">А в галерее вы всегда можете найти что-то интересное для себя
                                 </p>
@@ -577,7 +542,7 @@
                         </div>
                         <h3 class="accordion__header">C 1800 по 1899 гг</h3>
                         <div class="accordion__block">
-                            <div class="accrodion__clear">
+                            <div class="accordion__clear">
                                 <h4 class="accordion__subtitle">Здесь пока пусто</h4>
                                 <p class="accordion__text">А в галерее вы всегда можете найти что-то интересное для себя
                                 </p>
@@ -586,7 +551,7 @@
                         </div>
                         <h3 class="accordion__header">C 1900 по 1999 гг</h3>
                         <div class="accordion__block">
-                            <div class="accrodion__clear">
+                            <div class="accordion__clear">
                                 <h4 class="accordion__subtitle">Здесь пока пусто</h4>
                                 <p class="accordion__text">А в галерее вы всегда можете найти что-то интересное для себя
                                 </p>
@@ -595,7 +560,7 @@
                         </div>
                         <h3 class="accordion__header">C 2000 г</h3>
                         <div class="accordion__block">
-                            <div class="accrodion__clear">
+                            <div class="accordion__clear">
                                 <h4 class="accordion__subtitle">Здесь пока пусто</h4>
                                 <p class="accordion__text">А в галерее вы всегда можете найти что-то интересное для себя
                                 </p>
@@ -625,9 +590,9 @@
                                 <h3 class="section-event__title section-event__title_max-width_330px">
                                     Книжная гравюра в живом восприятии
                                 </h3>
-                                <h3 class="section-event__title-1">
+                                <h4 class="section-event__title-1">
                                     Книжная гравюра в восприятии
-                                </h3>
+                                </h4>
                                 <p class="section-event__text">
                                     Один из ведущих флорентийских художников Кватроченто, основатель художественной
                                     династии, которую продолжили его брат Давид и сын Ридольфо
@@ -687,10 +652,9 @@
                                 <a href="" class="section-event__link">Подробнее</a>
                             </div>
                         </div>
-                        
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination section-event_swiper-pagination"></div>
                     </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination section-event__swiper-pagination"></div>
                     <div class="swiper-button-prev-2 swiper-button-prev section-event__swiper-button-prev"></div>
                     <div class="swiper-button-next-2 swiper-button-next section-event__swiper-button-next"></div>
                 </div>
@@ -792,11 +756,11 @@
         </section>
 
         <section class="section-form" id="section-form">
-            <div class="container secton-form__container">
-                <h2 class="section-form__header">Шоурум № 4<span class="form__subtitle">Леонтьевский переулок,
+            <div class="container section-form__container">
+                <h2 class="section-form__header">Шоурум № 4<span class="section-form__subtitle">Леонтьевский переулок,
                         дом 5/1</span></h2>
                 <form id="form" action="https://jsonplaceholder.typicode.com/posts" autocomplete="on" method="post"
-                    class="js-form form secton-form__form">
+                    class="js-form form section-form__form">
                     <input type="text" class="form__input form-control" placeholder="Имя*" autocomplete="off"
                         data-validate-field="name" name="name" id="name">
                     <input type="text" class="form__input form__input_number_2 form-control" placeholder="Телефон*" autocomplete="off"
@@ -806,7 +770,7 @@
                 </form>
                 <div class="section-form__link-block">
                     Связаться&nbsp;в&nbsp;один&nbsp;клик
-                    <a href="" class="section-form__link form__link_number_1">
+                    <a href="" class="section-form__link section-form__link_number_1">
                         <svg class="section-form__svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_191243_648)">
@@ -824,7 +788,7 @@
                             </defs>
                         </svg>
                     </a>
-                    <a href="" class="section-form__link form__link_number_2">
+                    <a href="" class="section-form__link section-form__link_number_2">
                         <svg class="section-form__svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -996,6 +960,7 @@
             myMap.controls.remove('fullscreenControl');
             myMap.controls.remove('routeButtonControl');
             myMap.controls.remove('routePanelControl');
+            myMap.behaviors.disable('scrollZoom'); 
         }
 
         //ScrollBar
@@ -1015,6 +980,39 @@
             scrollbarMaxSize: 28,
         });
     </script>
+
+<script>
+    $(function () {
+        $("#accordion").accordion({
+            collapsible: true,
+            heightStyle: "content"
+        });
+    });
+</script>
+
+<script>
+    const showDialog = () => {
+        document.getElementById("dialog").classList.remove("is-active-2");
+        const scrollY = document.documentElement.style.getPropertyValue("--scroll-y");
+        const body = document.body;
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}`;
+    };
+    const closeDialog = () => {
+        const body = document.body;
+        const scrollY = body.style.top;
+        body.style.position = "";
+        body.style.top = "";
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+        document.getElementById("dialog").classList.add("is-active-2");
+    };
+    window.addEventListener("scroll", () => {
+        document.documentElement.style.setProperty(
+        "--scroll-y",
+        `${window.scrollY}px`
+        );
+    });
+</script>
 </body>
 
 </html>

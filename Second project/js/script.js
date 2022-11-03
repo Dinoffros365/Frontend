@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
       prevEl: ".swiper-button-prev-2",
     },
     pagination: {
-      el: '.section-event_swiper-pagination',
+      el: '.section-event__swiper-pagination',
     },
     breakpoints: {
       701: {
